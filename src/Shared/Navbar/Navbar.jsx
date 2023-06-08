@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../../../public/logo2.png"
+import logo from "../../../public/logo.png"
 
 const Navbar = () => {
 
@@ -10,7 +10,7 @@ const Navbar = () => {
     </>
     return (
         <div className="font-semibold">
-            <div className="navbar bg-gradient-to-r from-indigo-400 to-purple-400 text-white">
+            <div className="navbar bg-gradient-to-r from-indigo-500 to-purple-500 text-white">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -28,7 +28,7 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link><button className="btn btn-ghost">Login</button></Link>
+                    <Link to='/login'><button className="btn btn-ghost">Login</button></Link>
                 </div>
             </div>
         </div>
