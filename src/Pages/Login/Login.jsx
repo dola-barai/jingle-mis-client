@@ -38,7 +38,7 @@ const Login = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero h-max py-20 bg-white">
+            <div className="hero h-max  bg-white">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <img src="https://img.freepik.com/free-vector/privacy-policy-concept-illustration_114360-7853.jpg?w=740&t=st=1686198326~exp=1686198926~hmac=31c7064d141e810d59ff017a0a84ba171b0bc816ff8cfbfc2ae49179498f5775" alt="" />

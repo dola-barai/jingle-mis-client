@@ -43,7 +43,7 @@ const Register = () => {
     return (
         <div>
             <Navbar></Navbar>
-            <div className="hero h-max py-20 bg-white">
+            <div className="hero h-max bg-white">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
                         <img src="https://img.freepik.com/free-vector/forms-concept-illustration_114360-4947.jpg?w=740&t=st=1686202919~exp=1686203519~hmac=717089ba539cb589763aba8d843fa76b533a6fbe680b9ba2c7117e9b0b1388ab" alt="" />
