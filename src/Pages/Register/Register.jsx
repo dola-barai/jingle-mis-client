@@ -3,17 +3,41 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import Footer from "../../Shared/Footer/Footer";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Register = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [passwordMatch, setPasswordMatch] = useState(true);
+
+    const handlePasswordChange = (event) => {
+        setPassword(event.target.value);
+    };
+
+    const handleConfirmPasswordChange = (event) => {
+        setConfirmPassword(event.target.value);
+    };
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = (data) => {
+        console.log(data);
+        event.preventDefault();
+        if (password === confirmPassword) {
+            setPasswordMatch(true);
+        } else {
+            setPasswordMatch(false);
+        }
+    };
+
+    const watchPassword = watch('password', '');
+
     return (
         <div>
             <Navbar></Navbar>
             <div className="hero h-max py-20 bg-white">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
-                        <img  src="https://img.freepik.com/free-vector/forms-concept-illustration_114360-4947.jpg?w=740&t=st=1686202919~exp=1686203519~hmac=717089ba539cb589763aba8d843fa76b533a6fbe680b9ba2c7117e9b0b1388ab" alt="" />
+                        <img src="https://img.freepik.com/free-vector/forms-concept-illustration_114360-4947.jpg?w=740&t=st=1686202919~exp=1686203519~hmac=717089ba539cb589763aba8d843fa76b533a6fbe680b9ba2c7117e9b0b1388ab" alt="" />
                     </div>
                     <div>
                         <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-gradient-to-r from-indigo-500 to-purple-500">
@@ -37,7 +61,7 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text text-white">Password*</span>
                                     </label>
-                                    <input type="password" name="password" {...register("password",
+                                    <input type="password" onChange={handlePasswordChange} name="password" {...register("password",
                                         {
                                             required: true,
                                             minLength: 6,
@@ -45,6 +69,9 @@ const Register = () => {
                                             pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
                                         }
                                     )} placeholder="******" className="input input-bordered" />
+                                    {!passwordMatch && (
+                                        <span style={{ color: 'red' }}>Passwords do not match</span>
+                                    )}
                                     {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
                                     {errors.password?.type === 'maxLength' && <p className="text-red-600">Password must be less than 20 characters</p>}
                                     {errors.password?.type === 'pattern' && <p className="text-red-600">Password must have one Uppercase and one special character.</p>}
@@ -53,7 +80,17 @@ const Register = () => {
                                     <label className="label">
                                         <span className="label-text text-white">Confirm Password*</span>
                                     </label>
-                                    <input type="password" name="password" {...register("password", { required: true })} placeholder="********" className="input input-bordered" />
+                                    <input type="password" onChange={handleConfirmPasswordChange} name="confirmPassword"
+                                        {...register("confirmPassword", {
+                                            required: true, validate: (value) =>
+                                                value === watchPassword || 'Passwords do not match'
+                                        })} placeholder="********" className="input input-bordered" />
+
+                                    {errors.confirmPassword && (
+                                        <span style={{ color: 'red' }}>
+                                            {errors.confirmPassword.message}
+                                        </span>
+                                    )}
                                 </div>
                                 <div className="form-control">
                                     <label className="label">

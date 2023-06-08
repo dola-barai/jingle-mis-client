@@ -3,8 +3,17 @@ import Footer from "../../Shared/Footer/Footer";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
+import { useState } from "react";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
+    
+    const [showPassword, setShowPassword] = useState(false);
+
+    const togglePasswordVisibility = () => {
+      setShowPassword(!showPassword);
+    };
+
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     return (
@@ -30,7 +39,12 @@ const Login = () => {
                                 <label className="label">
                                     <span className="label-text text-white">Password</span>
                                 </label>
-                                <input type="password" name="password" {...register("password", { required: true, minLength: 6 })} placeholder="********" className="input input-bordered" />
+                                <div className="flex">
+                                <input type={showPassword ? 'text' : 'password'} name="password" {...register("password", { required: true, minLength: 6 })} placeholder="********" className="input input-bordered" />
+                                <button className="-ml-8" onClick={togglePasswordVisibility}>
+                                    {showPassword ? <><FaEyeSlash></FaEyeSlash></> : <><FaEye></FaEye></>}
+                                  </button>
+                                </div>
                                 {errors.password?.type === 'minLength' && <p className='text-red-500'>Password must be 6 characters</p>}
                             </div>
                             <div className="form-control mt-6">
