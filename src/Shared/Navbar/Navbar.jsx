@@ -1,7 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "../../../public/logo.png"
+import { useContext, useEffect } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import { CgProfile } from "react-icons/cg";
 
 const Navbar = () => {
+    const { user, logOut } = useContext(AuthContext)
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.error(error))
+    }
+
+    useEffect(() => {
+        
+    },[])
 
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
@@ -28,7 +41,15 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link to='/login'><button className="btn btn-ghost">Login</button></Link>
+
+                {
+                        user ? <>
+                            <CgProfile></CgProfile>
+                            <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
+                        </> : <>
+                            <Link to='/login'>Login</Link>
+                        </>
+                    }
                 </div>
             </div>
         </div>

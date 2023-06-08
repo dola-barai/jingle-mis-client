@@ -3,7 +3,8 @@ import Navbar from "../../Shared/Navbar/Navbar";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import Footer from "../../Shared/Footer/Footer";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
 
 const Register = () => {
     const [password, setPassword] = useState('');
@@ -19,17 +20,25 @@ const Register = () => {
     };
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { createUser } = useContext(AuthContext)
     const onSubmit = (data) => {
         console.log(data);
-        event.preventDefault();
         if (password === confirmPassword) {
             setPasswordMatch(true);
         } else {
             setPasswordMatch(false);
         }
+
+        createUser(data.email, data.password)
+            .then(result => {
+
+                const loggedUser = result.user;
+                console.log(loggedUser);
+            })
     };
 
     const watchPassword = watch('password', '');
+   
 
     return (
         <div>
