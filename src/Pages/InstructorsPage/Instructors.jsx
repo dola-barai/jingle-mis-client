@@ -14,9 +14,9 @@ const Instructors = ({instructor}) => {
         <img src={instructor.image} className="rounded-xl h-80 " />
       </figure>
       <div className="card-body items-center text-center">
-        <h2 className="card-title">{instructor.name}</h2>
-        <p>{instructor.email}</p>
-        <p>{instructor.classes}</p>
+        <h2 className="card-title">Name: {instructor.name}</h2>
+        <p>Email: {instructor.email}</p>
+        <p>Class: {instructor.classes}</p>
         <div className="card-actions">
           <button className="btn btn-sm btn-primary">See Classes</button>
         </div>
