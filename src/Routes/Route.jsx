@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import InstructorsPage from "../Pages/InstructorsPage/InstructorsPage";
 import ClassPage from "../Pages/ClassPage/ClassPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -33,7 +34,11 @@ const router = createBrowserRouter([
   {
     path: '/classes',
     element: <ClassPage></ClassPage>
-  }
+  },
+  {
+    path: "/view",
+    element: <PrivateRoute></PrivateRoute>
+  },
 
 ]);
 

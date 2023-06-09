@@ -1,5 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { HelmetProvider } from 'react-helmet-async';
 import './index.css'
 import {
   RouterProvider,
@@ -17,11 +18,13 @@ const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
+        <HelmetProvider>
         <QueryClientProvider client={queryClient}>
           <div>
             <RouterProvider router={router} />
           </div>
         </QueryClientProvider>
+        </HelmetProvider>
     </AuthProvider>
   </React.StrictMode>,
 )
