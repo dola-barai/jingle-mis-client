@@ -4,7 +4,7 @@ import Home from "../components/Home/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import InstructorsPage from "../Pages/InstructorsPage/InstructorsPage";
-import ClassesPage from "../Pages/ClassesPage/ClassesPage";
+import ClassPage from "../Pages/ClassPage/ClassPage";
 
 const router = createBrowserRouter([
   {
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/classes',
-    element: <ClassesPage></ClassesPage>
+    element: <ClassPage></ClassPage>
   }
 
 ]);

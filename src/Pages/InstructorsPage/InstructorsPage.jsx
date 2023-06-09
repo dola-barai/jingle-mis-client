@@ -14,10 +14,10 @@ const InstructorsPage = () => {
             <Cover></Cover>
             <div className="grid grid-cols-3 gap-5 mx-5">
                {
-                instructors.map(instructor => <Instructors
+                instructors.map(instructor => (<Instructors
                 key={instructor._id}
                 instructor={instructor}
-                ></Instructors>)
+                ></Instructors>))
                } 
             </div>
             <Footer></Footer>
