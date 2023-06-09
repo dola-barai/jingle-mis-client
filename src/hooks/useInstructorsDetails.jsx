@@ -1,21 +1,16 @@
 import { useQuery } from '@tanstack/react-query'
-import useAxiosSecure from './useAxiosSecure';
-import useAuth from './useAuth';
+
 
 const useInstructorsDetails = () => {
-    const { loading } = useAuth();
-    const [axiosSecure] = useAxiosSecure();
-    const { refetch, data: instructors = [] } = useQuery({
+    const {data: instructors = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['instructors'],
-        enabled: !loading,
-        queryFn: async () => {
-            const res = await axiosSecure('/instructors')
-            console.log('res from axios', res)
-            return res.data;
-        },
+        queryFn: async() => {
+            const res = await fetch('https://jingle-mis-server.vercel.app/instructors')
+            return res.json()
+        }
     })
 
-    return [instructors, refetch]
+    return [instructors, loading, refetch]
 };
 
 export default useInstructorsDetails;

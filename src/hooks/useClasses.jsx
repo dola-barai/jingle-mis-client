@@ -1,20 +1,15 @@
 import { useQuery } from '@tanstack/react-query'
-import useAxiosSecure from './useAxiosSecure';
-import useAuth from './useAuth';
+
 
 const useClasses = () => {
-    const {loading } = useAuth();
-    const [axiosSecure] = useAxiosSecure();
-    const { refetch, data: allClasses = [] } = useQuery({
+    const {data: allClasses = [], isLoading: loading, refetch} = useQuery({
         queryKey: ['allClasses'],
-        enabled: !loading,
-        queryFn: async () => {
-            const res = await axiosSecure('/classes')
-            console.log('res from axios', res)
-            return res.data;
-        },
+        queryFn: async() => {
+            const res = await fetch('https://jingle-mis-server.vercel.app/classes')
+            return res.json()
+        }
     })
-    return [allClasses, refetch]
+    return [allClasses, loading, refetch]
 };
 
 export default useClasses;
