@@ -3,8 +3,12 @@ import logo from "../../../public/logo.png"
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { CgProfile } from "react-icons/cg";
+import { FaShoppingCart } from "react-icons/fa";
+import useSelectedClass from "../../hooks/useSelectedClass";
+
 
 const Navbar = () => {
+    const [selectedClass] = useSelectedClass()
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
         logOut()
@@ -21,6 +25,14 @@ const Navbar = () => {
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
+        <li>
+            <Link to='/dashboard/mySelectedClass'>
+                <button className="btn gap-2">
+                    <FaShoppingCart></FaShoppingCart>
+                    <div className="badge badge-secondary">+{selectedClass?.length || 0}</div>
+                </button>
+            </Link>
+        </li>
     </>
     return (
         <div className="font-semibold ">

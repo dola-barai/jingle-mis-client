@@ -1,11 +1,59 @@
 import Aos from "aos";
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
+import {  Navigate } from "react-router-dom";
+import useClasses from "../../hooks/useClasses";
+import { useContext } from "react";
+import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
-const Classes = ({ singleClass, handleView, className }) => {
+const Classes = ({ singleClass, className }) => {
+    const {name, image, price, instructor, _id} = singleClass;
+    const [, refetch] = useClasses()
+    const {user} = useContext(AuthContext);
+
+    const handleAddToCart = (singleClass) => {
+        console.log(singleClass);
+        if(user){
+            const selectedClass = {classId: _id, name, image, price, instructor, email: user.email}
+            fetch('http://localhost:5000/selectedClass', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(selectedClass)
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.insertedId){
+                    refetch()
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'Food added on the cart',
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+        }
+        else{
+            Swal.fire({
+                title: 'Please login to order the food',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Login Now!'
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  Navigate('/login', {state: {from: location}})
+                }
+              })
+        }
+    }
 
     useEffect( () => {
         Aos.init({duration: 2000})
@@ -21,7 +69,7 @@ const Classes = ({ singleClass, handleView, className }) => {
                         <p className="text-2xl py-3">Instructor Name: {singleClass.instructor}</p>
                         <p className="text-xl py-3">Available Seats: <span className="badge badge-secondary"> {singleClass.availableSeats}</span></p>
                         <p className="text-xl py-3">Price: {singleClass.price}</p>
-                        <Link to='/view'><button  disabled={singleClass.availableSeats === 0} onClick={handleView} className="btn btn-sm btn-primary">Select Course</button></Link>
+                        <button onClick={() => handleAddToCart(singleClass)}  disabled={singleClass.availableSeats === 0}  className="btn btn-sm btn-primary">Select Course</button>
                     </div>
                 </div>
                 </div>
