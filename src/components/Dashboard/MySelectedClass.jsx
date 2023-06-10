@@ -2,14 +2,41 @@ import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 
 import { Link } from "react-router-dom";
+
+import Swal from "sweetalert2";
 import useSelectedClass from "../../hooks/useSelectedClass";
 
 const MySelectedClass = () => {
-    const [selectedClass] = useSelectedClass();
+    const [selectedClass, refetch] = useSelectedClass();
     const total = selectedClass.reduce((sum, item) => item.price + sum, 0);
     
-    const handleDelete = () => {
-        
+    const handleDelete = item => {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/selectedClass/${item._id}`, {
+                    method: 'DELETE'
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            refetch();
+                            Swal.fire(
+                                'Deleted!',
+                                'Your Class has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+            }
+        })
     }
     
     return (
