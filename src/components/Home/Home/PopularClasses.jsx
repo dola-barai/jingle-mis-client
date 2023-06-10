@@ -13,7 +13,7 @@ const PopularClasses = () => {
                 subHeading={"Student's preferred"}
             ></SectionTitle>
             <div className="md:mx-20">
-            <div className="grid grid-cols-3  gap-6 mx-auto mb-10">
+            <div className="md:grid sm:ml-40 md:grid-cols-3   gap-6 mx-auto mb-10">
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img1} alt="Shoes" /></figure>
                 <div className="card-body">

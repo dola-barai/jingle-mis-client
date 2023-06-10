@@ -1,4 +1,4 @@
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 import CoverC from "../../Shared/CoverC";
 import Footer from "../../Shared/Footer/Footer";
 import Navbar from "../../Shared/Navbar/Navbar";
@@ -12,14 +12,14 @@ import { Helmet } from "react-helmet";
 
 const ClassPage = () => {
     const [ classes ] = useClasses();
-
+    const location = useLocation()
     const {user} = useContext(AuthContext)
 
     const handleView = () => {
         if (!user) {
           Swal.fire('You have to log in first to view details.')
           
-          return <Navigate to='/login' replace={true}></Navigate>
+          return <Navigate to='/login' state={{from: location}} replace={true}></Navigate>
         } 
     };
     
@@ -30,7 +30,7 @@ const ClassPage = () => {
             </Helmet>
             <Navbar></Navbar>
             <CoverC></CoverC>
-            <div className="mt-12 mx-32 grid grid-cols-1 gap-5 mb-12">
+            <div className="mt-12 mx-20 grid grid-cols-1 gap-5 mb-12">
                 {
                     classes.map(singleClass => (
                         <Classes 

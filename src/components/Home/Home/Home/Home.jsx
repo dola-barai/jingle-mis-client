@@ -1,5 +1,5 @@
+import Reviews from "../../Reviews/Reviews";
 import Banner from "../Banner";
-import Board from "../Board";
 import PopularClasses from "../PopularClasses";
 import PopularInstructors from "../PopularInstructors";
 import { Helmet } from "react-helmet-async";
@@ -13,7 +13,7 @@ const Home = () => {
             <Banner></Banner>
             <PopularClasses></PopularClasses>
             <PopularInstructors></PopularInstructors>
-            <Board></Board>
+            <Reviews></Reviews>
         </div>
     );
 };

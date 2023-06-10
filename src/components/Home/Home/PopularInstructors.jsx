@@ -16,7 +16,7 @@ const PopularInstructors = () => {
                 subHeading={"Student's preferred"}
             ></SectionTitle>
             <div className="mb-12">
-                <div className="grid grid-cols-3 gap-5">
+                <div className="grid md:grid-cols-3 gap-5">
                     <div className="mx-auto text-center">
                         <img className="w-48 rounded-full " src={img1} alt="" />
                         <h3 className="text-xl  font-bold mt-4">Karan Johnson</h3>
