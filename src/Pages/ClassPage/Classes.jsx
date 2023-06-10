@@ -2,18 +2,16 @@ import Aos from "aos";
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
 import {  Navigate } from "react-router-dom";
-import useClasses from "../../hooks/useClasses";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 
 
+
 const Classes = ({ singleClass, className }) => {
     const {name, image, price, instructor, _id} = singleClass;
-    const [, refetch] = useClasses()
     const {user} = useContext(AuthContext);
-
     const handleAddToCart = (singleClass) => {
         console.log(singleClass);
         if(user){
@@ -28,11 +26,10 @@ const Classes = ({ singleClass, className }) => {
             .then(res => res.json())
             .then(data => {
                 if(data.insertedId){
-                    refetch()
                     Swal.fire({
                         position: 'top-end',
                         icon: 'success',
-                        title: 'Food added on the cart',
+                        title: `Select ${singleClass.name} by ${singleClass.instructor}`,
                         showConfirmButton: false,
                         timer: 1500
                       })
