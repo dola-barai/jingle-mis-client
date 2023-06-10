@@ -60,7 +60,7 @@ const Testimonials = () => {
                                 className="flex flex-col items-center text-black mx-32 animate__animated"  
                             >
                                 <Rating className="mb-4 pt-16" style={{ maxWidth: 100 }} value={review.rating} readOnly />
-                                <p className="text-center mb-2">{review.comment}</p>
+                                <p className=" text-center mb-2">{review.comment}</p>
                                 <img className="rounded-full h-16" src={review.image} alt="" />
                                 <h3 className="text-2xl text-yellow-600">{review.user_name}</h3>
                             </div>
