@@ -1,5 +1,4 @@
-import Navbar from "../../Shared/Navbar/Navbar";
-import Footer from "../../Shared/Footer/Footer";
+
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
@@ -42,7 +41,6 @@ const Login = () => {
     };
     return (
         <div>
-            <Navbar></Navbar>
             <div className="hero h-max  bg-white">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -82,7 +80,6 @@ const Login = () => {
                     
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

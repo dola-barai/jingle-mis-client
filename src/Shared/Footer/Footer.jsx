@@ -3,7 +3,7 @@ import logo from "../../../public/logo.png"
 const Footer = () => {
     return (
         <footer>
-            <div className="footer font-semibold items-center text-white bg-gradient-to-r from-indigo-500 to-purple-500  p-10">
+            <div className="footer font-semibold classs-center text-white bg-gradient-to-r from-indigo-500 to-purple-500  p-10">
                 <div className="mx-auto">
                    <img className="h-40 rounded-full" src={logo}/>
                 </div>

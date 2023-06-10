@@ -1,7 +1,5 @@
 import { useForm } from "react-hook-form";
-import Navbar from "../../Shared/Navbar/Navbar";
 import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
-import Footer from "../../Shared/Footer/Footer";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
@@ -42,7 +40,6 @@ const Register = () => {
 
     return (
         <div>
-            <Navbar></Navbar>
             <div className="hero h-max bg-white">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="text-center lg:text-left">
@@ -118,7 +115,6 @@ const Register = () => {
 
                 </div>
             </div>
-            <Footer></Footer>
         </div>
     );
 };

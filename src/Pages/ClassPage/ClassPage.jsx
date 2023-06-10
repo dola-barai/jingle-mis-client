@@ -1,7 +1,5 @@
 import { Navigate, useLocation } from "react-router-dom";
 import CoverC from "../../Shared/CoverC";
-import Footer from "../../Shared/Footer/Footer";
-import Navbar from "../../Shared/Navbar/Navbar";
 import useClasses from "../../hooks/useClasses";
 import Classes from "./Classes";
 import Swal from "sweetalert2";
@@ -28,7 +26,6 @@ const ClassPage = () => {
             <Helmet>
                <title>JINGLE | Classes</title>
             </Helmet>
-            <Navbar></Navbar>
             <CoverC></CoverC>
             <div className="mt-12 mx-20 grid grid-cols-1 gap-5 mb-12">
                 {
@@ -42,7 +39,6 @@ const ClassPage = () => {
                     ))
                 }
             </div>
-            <Footer></Footer>
         </div>
     );
 };
