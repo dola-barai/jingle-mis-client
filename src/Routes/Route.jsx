@@ -11,6 +11,7 @@ import Dashboard from "../Layouts/Dashboard";
 import StudentHome from "../components/Dashboard/StudentHome";
 import AllUsers from "../components/Dashboard/AllUsers";
 import Payment from "../components/Dashboard/Payment/Payment";
+import AdminRoute from "./AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -53,8 +54,8 @@ const router = createBrowserRouter([
         element: <StudentHome></StudentHome>
       },
       {
-        path: 'allUsers',
-        element: <AllUsers></AllUsers>
+        path: 'allUsers', 
+        element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
       },
       {
         path: 'mySelectedClass',
