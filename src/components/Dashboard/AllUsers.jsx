@@ -30,12 +30,44 @@ const AllUsers = () => {
                 }
             })
     }
-    const handleMakeInstructor = () => {
-
+    const handleMakeInstructor = (user) => {
+        fetch(`http://localhost:5000/users/instructor/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
-    const handleMakeStudent = () => {
-
+    const handleMakeStudent = (user) => {
+        fetch(`http://localhost:5000/users/student/${user._id}`, {
+            method: 'PATCH'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if (data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Student Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
     }
 
     const handleDelete = () => {

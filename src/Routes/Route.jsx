@@ -10,6 +10,7 @@ import MySelectedClass from "../components/Dashboard/MySelectedClass";
 import Dashboard from "../Layouts/Dashboard";
 import StudentHome from "../components/Dashboard/StudentHome";
 import AllUsers from "../components/Dashboard/AllUsers";
+import Payment from "../components/Dashboard/Payment/Payment";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,10 @@ const router = createBrowserRouter([
       {
         path: 'mySelectedClass',
         element: <MySelectedClass></MySelectedClass>
+      },
+      {
+        path: 'payment',
+        element: <Payment></Payment>
       }
     ]
   }
