@@ -3,11 +3,13 @@ import SocialLogin from "../../Shared/SocialLogin/SocialLogin";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [passwordMatch, setPasswordMatch] = useState(true);
+
 
     const handlePasswordChange = (event) => {
         setPassword(event.target.value);
@@ -17,8 +19,8 @@ const Register = () => {
         setConfirmPassword(event.target.value);
     };
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const { createUser } = useContext(AuthContext)
+    const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
+    const { createUser, updateUserProfile } = useContext(AuthContext)
     const onSubmit = (data) => {
         console.log(data);
         if (password === confirmPassword) {
@@ -32,11 +34,40 @@ const Register = () => {
 
                 const loggedUser = result.user;
                 console.log(loggedUser);
+
+                updateUserProfile(data.name, data.photoURL)
+                    .then(() => {
+                        const saveUser = { name: data.name, email: data.email }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(saveUser)
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.insertedId) {
+                                    reset();
+                                    Swal.fire({
+                                        position: 'top-end',
+                                        icon: 'success',
+                                        title: 'User created successfully.',
+                                        showConfirmButton: false,
+                                        timer: 1500
+                                    });
+                                }
+                            })
+
+
+
+                    })
+                    .catch(error => console.log(error))
             })
     };
 
     const watchPassword = watch('password', '');
-   
+
 
     return (
         <div>
