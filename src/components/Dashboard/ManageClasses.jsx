@@ -6,7 +6,7 @@ const ManageClasses = () => {
     const [instructorAddClasses] = useInsClasses()
 
     const handleApprove = (newClass) => {
-        fetch(`http://localhost:5000/newClass/approve/${newClass._id}`, {
+        fetch(`https://jingle-mis-server.vercel.app/newClass/approve/${newClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -26,7 +26,7 @@ const ManageClasses = () => {
     }
 
     const handleReject = (newClass) => {
-        fetch(`http://localhost:5000/newClass/reject/${newClass._id}`, {
+        fetch(`https://jingle-mis-server.vercel.app/newClass/reject/${newClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

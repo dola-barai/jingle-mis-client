@@ -98,7 +98,7 @@ const router = createBrowserRouter([
   {
     path: "/updateClass/:id",
     element: <UpdateClass></UpdateClass>,
-    loader: ({params}) => fetch(`http://localhost:5000/newClass/${params.id}`)
+    loader: ({params}) => fetch(`https://jingle-mis-server.vercel.app/newClass/${params.id}`)
   }
  
 

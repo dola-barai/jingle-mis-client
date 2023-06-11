@@ -15,7 +15,7 @@ const Classes = ({ singleClass, className }) => {
         console.log(singleClass);
         if(user){
             const selectedClass = {classId: _id, name, image, price, instructor, email: user.email}
-            fetch('http://localhost:5000/selectedClass', {
+            fetch('https://jingle-mis-server.vercel.app/selectedClass', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'

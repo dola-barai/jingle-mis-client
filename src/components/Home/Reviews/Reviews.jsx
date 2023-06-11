@@ -23,7 +23,7 @@ const Testimonials = () => {
 
 
     useEffect(() => {
-        fetch('http://localhost:5000/reviews')
+        fetch('https://jingle-mis-server.vercel.app/reviews')
             .then(res => res.json())
             .then(data => {
                 setReviews(data)

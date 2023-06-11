@@ -15,17 +15,9 @@ const UpdateClass = () => {
 
     const onSubmit = updatedClass => {
 
-       // const updatedClass = {
-       //     photoURL: image,
-       //     cname: cname,
-       //     iName: iName,
-       //     email: email,
-       //     price: price,
-       //     role: role
-       // }
         console.log(updatedClass);
         
-        fetch(`http://localhost:5000/newClass/${_id}`, {
+        fetch(`https://jingle-mis-server.vercel.app/newClass/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

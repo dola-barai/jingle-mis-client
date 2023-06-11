@@ -10,7 +10,7 @@ const AddClass = () => {
     const onSubmit = (data) => {
     
         console.log(data);
-        fetch('http://localhost:5000/newClass', {
+        fetch('https://jingle-mis-server.vercel.app/newClass', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
