@@ -14,6 +14,7 @@ import Payment from "../components/Dashboard/Payment/Payment";
 import AdminRoute from "./AdminRoute";
 import EnrolledClassPage from "../components/Dashboard/EnrolledClassPage";
 import PaymentHistoryPage from "../components/Dashboard/PaymentHistoryPage";
+import AddClass from "../components/Dashboard/InstructorBoard/AddClass";
 
 const router = createBrowserRouter([
   {
@@ -49,7 +50,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: 'sHome',
@@ -74,7 +75,11 @@ const router = createBrowserRouter([
       {
         path: 'pHistory',
         element: <PaymentHistoryPage></PaymentHistoryPage>
-      }
+      },
+      {
+        path: 'addClass',
+        element: <AddClass></AddClass>
+      },
     ]
   }
  

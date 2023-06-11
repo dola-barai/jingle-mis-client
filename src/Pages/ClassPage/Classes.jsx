@@ -1,17 +1,16 @@
 import Aos from "aos";
 import 'aos/dist/aos.css'
 import { useEffect } from "react";
-import {  Navigate } from "react-router-dom";
+import {  Navigate, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import Swal from "sweetalert2";
 
 
-
-
 const Classes = ({ singleClass, className }) => {
     const {name, image, price, instructor, _id} = singleClass;
     const {user} = useContext(AuthContext);
+    const navigate = useNavigate()
     const handleAddToCart = (singleClass) => {
         console.log(singleClass);
         if(user){
@@ -38,13 +37,15 @@ const Classes = ({ singleClass, className }) => {
         }
         else{
             Swal.fire({
-                title: 'Please login to order the food',
+                title: 'Please login to select class.',
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Login Now!'
-              }).then((result) => {
+                confirmButtonText: 'Login Now!'     
+              })
+              navigate('/login')
+              .then((result) => {
                 if (result.isConfirmed) {
                   Navigate('/login', {state: {from: location}})
                 }

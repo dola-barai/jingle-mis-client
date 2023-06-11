@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import logo from "../../../public/logo.png"
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
-import { CgProfile } from "react-icons/cg";
 import useSelectedClass from "../../hooks/useSelectedClass";
 import useStudent from "../../hooks/useStudent";
 
@@ -63,7 +62,7 @@ const Navbar = () => {
 
                     {
                         user ? <>
-                            <CgProfile></CgProfile>
+                            <img className="h-12 rounded-full" src={user.photoURL} alt="" />
                             <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
                         </> : <>
                             <Link to='/login'>Login</Link>
