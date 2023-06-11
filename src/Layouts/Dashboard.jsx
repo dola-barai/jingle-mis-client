@@ -2,7 +2,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { BsFillBookmarksFill } from 'react-icons/bs';
 import { SiGoogleclassroom } from 'react-icons/si';
 import useSelectedClass from "../hooks/useSelectedClass";
-import { FaChalkboardTeacher, FaHome, FaUsers } from "react-icons/fa";
+import { FaChalkboardTeacher, FaHome, FaMoneyBill, FaUsers } from "react-icons/fa";
 import useAdmin from "../hooks/useAdmin";
 import useInstructor from "../hooks/useInstructor";
 import useStudent from "../hooks/useStudent";
@@ -75,6 +75,18 @@ const Dashboard = () => {
                                     <span className="badge badge-secondary">
                                         +{selectedClass?.length || 0}
                                     </span>
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/enrolledClass">
+                                    <FaHome></FaHome>
+                                    My Enrolled Classes
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/pHistory">
+                                    <FaMoneyBill></FaMoneyBill>
+                                    Payment History
                                 </NavLink>
                             </li>
                         </>

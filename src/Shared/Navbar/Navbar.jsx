@@ -3,11 +3,13 @@ import logo from "../../../public/logo.png"
 import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import { CgProfile } from "react-icons/cg";
-import { FaShoppingCart } from "react-icons/fa";
 import useSelectedClass from "../../hooks/useSelectedClass";
+import useStudent from "../../hooks/useStudent";
 
 
 const Navbar = () => {
+    const [isStudent] = useStudent()
+
     const [selectedClass] = useSelectedClass()
     const { user, logOut } = useContext(AuthContext)
     const handleLogout = () => {
@@ -17,22 +19,26 @@ const Navbar = () => {
     }
 
     useEffect(() => {
-        
-    },[])
+
+    }, [])
 
     const navOptions = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/instructors'>Instructors</Link></li>
         <li><Link to='/classes'>Classes</Link></li>
         <li><Link to='/dashboard'>Dashboard</Link></li>
-        <li>
-            <Link to='/dashboard/mySelectedClass'>
-                <button className="btn gap-2">
-                    <FaShoppingCart></FaShoppingCart>
-                    <div className="badge badge-secondary">+{selectedClass?.length || 0}</div>
-                </button>
-            </Link>
-        </li>
+        {
+            isStudent &&
+            (
+                <>
+                    <li>
+                        <Link to='/dashboard/mySelectedClass'>
+                            <div className="badge badge-secondary">+{selectedClass?.length || 0}</div>
+                        </Link>
+                    </li>
+                </>
+            )
+        }
     </>
     return (
         <div className="font-semibold ">
@@ -46,7 +52,7 @@ const Navbar = () => {
                             {navOptions}
                         </ul>
                     </div>
-                    <img className="h-12 rounded-full" src={logo}/>
+                    <img className="h-12 rounded-full" src={logo} />
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -55,7 +61,7 @@ const Navbar = () => {
                 </div>
                 <div className="navbar-end">
 
-                {
+                    {
                         user ? <>
                             <CgProfile></CgProfile>
                             <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
