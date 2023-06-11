@@ -22,7 +22,7 @@ const ManageClasses = () => {
                     })
                 }
             })
-            
+
     }
 
     const handleReject = (newClass) => {
@@ -42,7 +42,7 @@ const ManageClasses = () => {
                     })
                 }
             })
-             
+
     }
     return (
         <div>
@@ -65,7 +65,7 @@ const ManageClasses = () => {
                         {
                             instructorAddClasses.map((newClass, index) => <tr key={newClass._id}>
                                 <th>{index + 1}</th>
-                                
+
                                 <td>
                                     <img className="h-6" src={newClass.image} alt="" />
                                 </td>
@@ -74,35 +74,36 @@ const ManageClasses = () => {
                                 <td>{newClass.email}</td>
                                 <td>{newClass.price}</td>
                                 <td>{newClass.seats}</td>
-                                <td>{newClass.role === 'Approve' && 
-                                   <><span className="text-purple-700 bg-lime-200 p-2 rounded-xl">Approved</span>
-                                   <button disabled onClick={() => handleReject(newClass)}  className="btn btn-ghost bg-red-100 me-2 text-red-500 btn-sm rounded-xl">Reject</button>
-                                   </>
+                                <td>{newClass.role === 'Approve' &&
+                                    <><span className="text-purple-700 bg-lime-200 p-2 rounded-xl">Approved</span>
+                                        <button disabled onClick={() => handleReject(newClass)} className="btn btn-ghost bg-red-100 me-2 text-red-500 btn-sm rounded-xl">Reject</button>
+                                    </>
 
                                 }
-                                    {newClass.role === 'Reject' && 
-                                         <>
-                                         <button disabled  onClick={() => handleApprove(newClass)} className="btn btn-ghost btn-sm me-2 bg-base-200  text-green-400 rounded-xl">Accept</button>
-                                         <span  className="text-white bg-red-600 p-2 rounded-xl">Rejected</span>
-                                         </> 
-                                        
+                                    {newClass.role === 'Reject' &&
+                                        <>
+                                            <button disabled onClick={() => handleApprove(newClass)} className="btn btn-ghost btn-sm me-2 bg-base-200  text-green-400 rounded-xl">Accept</button>
+                                            <span className="text-white bg-red-600 p-2 me-2 rounded-xl">Rejected</span>
+                                        </>
+
                                     }
-                                     {newClass.role === 'Pending' &&
-                                     <>
-                                        <span className="text-green-600 font-bold me-2">Pending</span>
-                                        
-                                        <button onClick={() => handleApprove(newClass)} className="btn btn-ghost btn-sm  bg-base-200  text-green-400 rounded-full">Accept</button>
-                                        <button onClick={() => handleReject(newClass)}  className="btn btn-ghost me-2 bg-red-100 text-red-500 btn-sm rounded-full">Reject</button>
+                                    {newClass.role === 'Pending' &&
+                                        <>
+                                            <span className="text-green-600 font-bold me-2">Pending</span>
+
+                                            <button onClick={() => handleApprove(newClass)} className="btn btn-ghost btn-sm me-2  bg-base-200  text-green-400 rounded-full">Accept</button>
+                                            <button onClick={() => handleReject(newClass)} className="btn btn-ghost me-2 bg-red-100 text-red-500 btn-sm rounded-full">Reject</button>
                                         </>
                                     }
-                                </td>
+                                    
+                            </td>
 
                             </tr>)
                         }
-                    </tbody>
-                </table>
-            </div>
+                </tbody>
+            </table>
         </div>
+        </div >
     );
 };
 
