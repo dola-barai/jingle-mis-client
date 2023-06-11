@@ -6,7 +6,7 @@ import Swal from "sweetalert2";
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
-    const { register, handleSubmit, } = useForm();
+    const { register, handleSubmit } = useForm();
     const onSubmit = (data) => {
     
         console.log(data);
@@ -78,6 +78,12 @@ const AddClass = () => {
                         <span className="label-text">Item Image</span>
                     </label>
                     <input type="text" {...register("image", { required: true })} placeholder="image" className="input input-bordered w-full "/>
+                </div>
+                <div className="form-control w-full mb-4">
+                    <label className="label">
+                        <span className="label-text">Role</span>
+                    </label>
+                    <input type="text" defaultValue='Pending' {...register("role", { required: true })} placeholder="role" className="input input-bordered w-full "/>
                 </div>
 
 

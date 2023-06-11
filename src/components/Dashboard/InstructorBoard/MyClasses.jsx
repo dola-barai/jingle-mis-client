@@ -27,14 +27,19 @@ const MyClasses = () => {
                                 <td>{newClass.email}</td>
                                 <td>{newClass.price}</td>
                                 <td>{newClass.seats}</td>
-                                <td>{newClass.role === 'Approve' ? 'SUCCESS' :
-                                    <button  className="btn btn-ghost me-2  text-red-500 rounded-full">Pending</button>
+                                <td>{newClass.role === 'Approve' &&
+                                    <span className="text-purple-600 font-bold">SUCCESS</span>
+                                }
+
+                                    {newClass.role === 'Reject' &&
+                                        <span className="text-red-600 font-bold">Rejected</span>
                                     }
-                                    {newClass.role === 'reject' ? 'reject' :
-                                    <h3></h3>
+
+                                    {newClass.role === 'Pending' &&
+                                        <span className="text-green-600 font-bold">Pending</span>
                                     }
                                 </td>
-        
+
                             </tr>)
                         }
                     </tbody>
