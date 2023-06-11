@@ -18,23 +18,28 @@ import AddClass from "../components/Dashboard/InstructorBoard/AddClass";
 import MyClasses from "../components/Dashboard/InstructorBoard/MyClasses";
 import ManageClasses from "../components/Dashboard/ManageClasses";
 import UpdateClass from "../components/Dashboard/InstructorBoard/UpdateClass";
+import ErrorPage from "../Pages/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
-        element: <Home></Home>
+        element: <Home></Home>,
+        errorElement: <ErrorPage></ErrorPage>
       },
       {
         path: "/login",
-        element: <Login></Login>
+        element: <Login></Login>,
+        errorElement: <ErrorPage></ErrorPage>
       },
       {
         path: "/register",
-        element: <Register></Register>
+        element: <Register></Register>,
+        errorElement: <ErrorPage></ErrorPage>,
       },
       {
         path: '/instructors',
