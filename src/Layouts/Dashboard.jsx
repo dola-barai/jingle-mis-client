@@ -41,6 +41,12 @@ const Dashboard = () => {
                                     All Users
                                 </NavLink>
                             </li>
+                            <li>
+                                <NavLink to="/dashboard/manageClasses">
+                                    <FaUsers />
+                                    Manage Classes
+                                </NavLink>
+                            </li>
                         </>
                     )}
 
@@ -56,6 +62,12 @@ const Dashboard = () => {
                                 <NavLink to="/dashboard/addClass">
                                     <FaUsers />
                                     Add a Class
+                                </NavLink>
+                            </li>
+                            <li>
+                                <NavLink to="/dashboard/myClasses">
+                                    <FaUsers />
+                                    My Classes
                                 </NavLink>
                             </li>
                         </>
