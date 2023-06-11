@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom";
 import useInsClasses from "../../../hooks/useInsClasses";
 
 const MyClasses = () => {
     const [instructorAddClasses] = useInsClasses()
+    const {_id} = instructorAddClasses;
     return (
         <div>
             <div className="overflow-x-auto mt-32">
@@ -10,6 +12,7 @@ const MyClasses = () => {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Class Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
                             <th>Instructor email</th>
@@ -22,6 +25,9 @@ const MyClasses = () => {
                         {
                             instructorAddClasses.map((newClass, index) => <tr key={newClass._id}>
                                 <th>{index + 1}</th>
+                                <td>
+                                    <img className="h-6" src={newClass.image} alt="" />
+                                </td>
                                 <td>{newClass.cname}</td>
                                 <td>{newClass.iName}</td>
                                 <td>{newClass.email}</td>
@@ -36,7 +42,11 @@ const MyClasses = () => {
                                     }
 
                                     {newClass.role === 'Pending' &&
-                                        <span className="text-green-600 font-bold">Pending</span>
+                                        <>
+                                        <span className="text-green-600 font-bold me-2">Pending</span>
+                                        <Link to={`/updateClass/${_id}`}><button className="btn btn-sm btn-primary">Update</button></Link>
+                                        </>
+
                                     }
                                 </td>
 

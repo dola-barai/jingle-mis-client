@@ -52,6 +52,7 @@ const ManageClasses = () => {
                     <thead>
                         <tr>
                             <th>#</th>
+                            <th>Class Image</th>
                             <th>Class Name</th>
                             <th>Instructor Name</th>
                             <th>Instructor email</th>
@@ -64,6 +65,10 @@ const ManageClasses = () => {
                         {
                             instructorAddClasses.map((newClass, index) => <tr key={newClass._id}>
                                 <th>{index + 1}</th>
+                                
+                                <td>
+                                    <img className="h-6" src={newClass.image} alt="" />
+                                </td>
                                 <td>{newClass.cname}</td>
                                 <td>{newClass.iName}</td>
                                 <td>{newClass.email}</td>
@@ -85,9 +90,9 @@ const ManageClasses = () => {
                                      {newClass.role === 'Pending' &&
                                      <>
                                         <span className="text-green-600 font-bold me-2">Pending</span>
-                                        <button onClick={() => handleReject(newClass)}  className="btn btn-ghost me-2 bg-red-100 text-red-500 btn-sm rounded-full">Reject</button>
+                                        
                                         <button onClick={() => handleApprove(newClass)} className="btn btn-ghost btn-sm  bg-base-200  text-green-400 rounded-full">Accept</button>
-
+                                        <button onClick={() => handleReject(newClass)}  className="btn btn-ghost me-2 bg-red-100 text-red-500 btn-sm rounded-full">Reject</button>
                                         </>
                                     }
                                 </td>

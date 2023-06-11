@@ -17,6 +17,7 @@ import PaymentHistoryPage from "../components/Dashboard/PaymentHistoryPage";
 import AddClass from "../components/Dashboard/InstructorBoard/AddClass";
 import MyClasses from "../components/Dashboard/InstructorBoard/MyClasses";
 import ManageClasses from "../components/Dashboard/ManageClasses";
+import UpdateClass from "../components/Dashboard/InstructorBoard/UpdateClass";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
+
       {
         path: 'sHome',
         element: <StudentHome></StudentHome>
@@ -84,13 +86,19 @@ const router = createBrowserRouter([
       },
       {
         path: 'myClasses',
-        element: <MyClasses></MyClasses>
+        element: <MyClasses></MyClasses>,
+
       },
       {
         path: 'manageClasses',
         element: <ManageClasses></ManageClasses>
       }
     ]
+  },
+  {
+    path: "/updateClass/:id",
+    element: <UpdateClass></UpdateClass>,
+    loader: ({params}) => fetch(`http://localhost:5000/newClass/${params.id}`)
   }
  
 

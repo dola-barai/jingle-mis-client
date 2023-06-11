@@ -1,10 +1,10 @@
 import { Navigate, useLocation } from "react-router";
 import useAuth from "../hooks/useAuth";
-import useAdmin from "../hooks/useAdmin";
+import useStudent from "../hooks/useStudent";
 
 const StudentRoute = ({ children }) => {
     const { user, loading } = useAuth();
-    const [isStudent, isStudentLoading] = useAdmin();
+    const [isStudent, isStudentLoading] = useStudent();
     const location = useLocation();
 
     if(loading || isStudentLoading){
