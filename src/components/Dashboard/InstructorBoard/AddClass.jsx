@@ -3,6 +3,7 @@ import SectionTitle from "../../../Shared/SecTitle/SecTitle";
 import { useContext } from "react";
 import { AuthContext } from "../../../Providers/AuthProvider";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddClass = () => {
     const { user } = useContext(AuthContext)
@@ -32,6 +33,9 @@ const AddClass = () => {
     }
     return (
         <div className="mx-20">
+            <Helmet>
+               <title>JINGLE | Add A Class</title>
+            </Helmet>
             <SectionTitle
                 heading={"Add A Class"}
                 subHeading={""}

@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom";
 import useInsClasses from "../../../hooks/useInsClasses";
+import { Helmet } from "react-helmet";
 
 const MyClasses = () => {
     const [insClasses] = useInsClasses();
     const {_id} = insClasses;
     return (
         <div>
+            <Helmet>
+               <title>JINGLE | My Classes</title>
+            </Helmet>
             <div className="overflow-x-auto mt-32">
                 <table className="table table-zebra w-full">
                     {/* head */}

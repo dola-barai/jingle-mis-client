@@ -4,11 +4,12 @@ import useInsPClasses from "../../hooks/useInsPClasses";
 
 import Swal from "sweetalert2";
 import { useState } from 'react';
+import { Helmet } from 'react-helmet';
 const ManageClasses = () => {
     const [instructorAddClasses] = useInsPClasses()
 
     const handleApprove = (newClass) => {
-        fetch(`http://localhost:5000/newClass/approve/${newClass._id}`, {
+        fetch(`https://jingle-mis-server.vercel.app/newClass/approve/${newClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())
@@ -61,6 +62,9 @@ const ManageClasses = () => {
 
     return (
         <div>
+            <Helmet>
+               <title>JINGLE | Manage Classes</title>
+            </Helmet>
             <div className="overflow-x-auto mt-10">
                 <table className="table table-zebra w-full">
                     {/* head */}

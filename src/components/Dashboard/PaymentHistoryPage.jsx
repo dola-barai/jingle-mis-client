@@ -8,7 +8,7 @@ const PaymentHistoryPage = () => {
     return (
         <div>
             <Helmet>
-                <title>JINGLE | Enrolled Classes</title>
+                <title>JINGLE | Payment History</title>
             </Helmet>
             <h3 className='text-3xl font-semibold '>Payment History</h3>
             <div className="overflow-x-auto w-full mt-3">

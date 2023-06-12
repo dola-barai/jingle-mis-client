@@ -1,7 +1,11 @@
+import { Helmet } from "react-helmet";
+
 const MyEnrolledClass = ({ enrolled }) => {
     return (
         <div>
-
+            <Helmet>
+               <title>JINGLE | My Enrolled Classes</title>
+            </Helmet>
             <div className="card bg-gradient-to-r from-indigo-300 to-purple-300 shadow-xl">
                 <div className="card-body">
 
