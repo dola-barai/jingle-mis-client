@@ -1,7 +1,9 @@
 
+import Modal from 'react-modal';
 import useInsPClasses from "../../hooks/useInsPClasses";
 
 import Swal from "sweetalert2";
+import { useState } from 'react';
 const ManageClasses = () => {
     const [instructorAddClasses] = useInsPClasses()
 
@@ -44,6 +46,19 @@ const ManageClasses = () => {
             })
 
     }
+
+    const [showModal, setShowModal] = useState(false);
+
+    const handleFeedback = () => {
+        setShowModal(true);
+    };
+
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
+
+
     return (
         <div>
             <div className="overflow-x-auto mt-10">
@@ -82,8 +97,26 @@ const ManageClasses = () => {
                                 }
                                     {newClass.role === 'Reject' &&
                                         <>
+
                                             <button disabled onClick={() => handleApprove(newClass)} className="btn btn-ghost btn-sm me-2 bg-base-200  text-green-400 rounded-xl">Accept</button>
                                             <span className="text-white bg-red-600 p-2 me-2 rounded-xl">Rejected</span>
+                                            <div>
+                                                <h3 onClick={() =>handleFeedback(newClass)} className="btn btn-sm btn-info text-amber-900  me-2">Feedback</h3>
+                                                <Modal
+                                                    className='w-96 h-32 mx-auto my-20'
+                                                    isOpen={showModal}
+                                                    onRequestClose={closeModal}
+                                                    contentLabel="Feedback Modal"
+                                                >
+                                                    <form> 
+                                                        <textarea
+                                                            placeholder="Enter your feedback..."
+                                                        ></textarea> <br />
+                                                        <button type="submit">Send Feedback</button>
+                                                    </form>
+                                                    <button onClick={closeModal}>Close Modal</button>
+                                                </Modal>
+                                            </div>
                                         </>
 
                                     }
@@ -95,14 +128,14 @@ const ManageClasses = () => {
                                             <button onClick={() => handleReject(newClass)} className="btn btn-ghost me-2 bg-red-100 text-red-500 btn-sm rounded-full">Reject</button>
                                         </>
                                     }
-                                    
-                            </td>
+
+                                </td>
 
                             </tr>)
                         }
-                </tbody>
-            </table>
-        </div>
+                    </tbody>
+                </table>
+            </div>
         </div >
     );
 };
