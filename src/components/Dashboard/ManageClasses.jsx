@@ -1,12 +1,12 @@
 
-import useInsClasses from "../../hooks/useInsClasses";
+import useInsPClasses from "../../hooks/useInsPClasses";
 
 import Swal from "sweetalert2";
 const ManageClasses = () => {
-    const [instructorAddClasses] = useInsClasses()
+    const [instructorAddClasses] = useInsPClasses()
 
     const handleApprove = (newClass) => {
-        fetch(`https://jingle-mis-server.vercel.app/newClass/approve/${newClass._id}`, {
+        fetch(`http://localhost:5000/newClass/approve/${newClass._id}`, {
             method: 'PATCH'
         })
             .then(res => res.json())

@@ -2,8 +2,8 @@ import { Link } from "react-router-dom";
 import useInsClasses from "../../../hooks/useInsClasses";
 
 const MyClasses = () => {
-    const [instructorAddClasses] = useInsClasses()
-    const {_id} = instructorAddClasses;
+    const [insClasses] = useInsClasses();
+    const {_id} = insClasses;
     return (
         <div>
             <div className="overflow-x-auto mt-32">
@@ -23,7 +23,7 @@ const MyClasses = () => {
                     </thead>
                     <tbody>
                         {
-                            instructorAddClasses.map((newClass, index) => <tr key={newClass._id}>
+                            insClasses.map((newClass, index) => <tr key={newClass._id}>
                                 <th>{index + 1}</th>
                                 <td>
                                     <img className="h-6" src={newClass.image} alt="" />
