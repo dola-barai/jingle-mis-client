@@ -19,6 +19,7 @@ import MyClasses from "../components/Dashboard/InstructorBoard/MyClasses";
 import ManageClasses from "../components/Dashboard/ManageClasses";
 import UpdateClass from "../components/Dashboard/InstructorBoard/UpdateClass";
 import ErrorPage from "../Pages/ErrorPage";
+import AdminHome from "../components/Dashboard/AdminHome";
 
 const router = createBrowserRouter([
   {
@@ -60,7 +61,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
-
+      {
+        path: 'adminHome',
+        element: <AdminHome></AdminHome>
+      },
       {
         path: 'sHome',
         element: <StudentHome></StudentHome>
