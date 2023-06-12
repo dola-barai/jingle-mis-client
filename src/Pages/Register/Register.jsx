@@ -22,7 +22,7 @@ const Register = () => {
     const { register, handleSubmit, reset, watch, formState: { errors } } = useForm();
     const { createUser, updateUserProfile } = useContext(AuthContext)
     const onSubmit = (data) => {
-        console.log(data);
+        
         if (password === confirmPassword) {
             setPasswordMatch(true);
         } else {
