@@ -32,6 +32,7 @@
     "react-parallax": "^3.5.1",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.11.2",
+    "react-soundplayer": "^1.0.5",
     "react-transition-group": "^4.4.5",
     "sort-by": "^1.2.0",
     "sweetalert2": "^11.7.11",
