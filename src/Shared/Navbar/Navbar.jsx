@@ -4,9 +4,9 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../../Providers/AuthProvider";
 import useSelectedClass from "../../hooks/useSelectedClass";
 import useStudent from "../../hooks/useStudent";
+import { FaToggleOff, FaToggleOn } from "react-icons/fa";
 
-
-const Navbar = () => {
+const Navbar = ({toggleTheme, isDarkTheme}) => {
     const [isStudent] = useStudent()
 
     const [selectedClass] = useSelectedClass()
@@ -22,10 +22,10 @@ const Navbar = () => {
     }, [])
 
     const navOptions = <>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/instructors'>Instructors</Link></li>
-        <li><Link to='/classes'>Classes</Link></li>
-        <li><Link to='/dashboard'>Dashboard</Link></li>
+        <li><Link className="hover:text-red-800" to='/'>Home</Link></li>
+        <li><Link className="hover:text-red-800" to='/instructors'>Instructors</Link></li>
+        <li><Link className="hover:text-red-800" to='/classes'>Classes</Link></li>
+        <li><Link className="hover:text-red-800" to='/dashboard'>Dashboard</Link></li>
         {
             isStudent &&
             (
@@ -59,13 +59,16 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-
+                {
+                    isDarkTheme ? <button onClick={toggleTheme}><FaToggleOff className="h-6 w-6 me-4"></FaToggleOff></button> :
+                    <button onClick={toggleTheme}><FaToggleOn className="h-6 w-6 me-4"></FaToggleOn></button>
+                }
                     {
                         user ? <>
                             <img className="h-12 rounded-full" src={user.photoURL} alt="" />
-                            <button onClick={handleLogout} className="btn btn-ghost">Logout</button>
+                            <button onClick={handleLogout} className="btn btn-ghost hover:text-red-800">Logout</button>
                         </> : <>
-                            <Link to='/login'>Login</Link>
+                            <Link className="hover:text-red-800" to='/login'>Login</Link>
                         </>
                     }
                 </div>

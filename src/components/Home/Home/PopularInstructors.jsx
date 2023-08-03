@@ -12,7 +12,7 @@ const PopularInstructors = () => {
     return (
         <div>
             <SectionTitle
-                heading={"Popular Instructors - TODO"}
+                heading={"Popular Instructors"}
                 subHeading={"Student's preferred"}
             ></SectionTitle>
             <div className="mb-12">

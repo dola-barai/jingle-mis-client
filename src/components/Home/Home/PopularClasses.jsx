@@ -17,7 +17,7 @@ const PopularClasses = () => {
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img1} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="card-title  text-black">
                     Guitar Lessons by Karan Johnson
                         <div className="badge badge-secondary">50 </div>
                     </h2>
@@ -29,7 +29,7 @@ const PopularClasses = () => {
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img2} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="card-title text-black">
                     Violin Lessons by Emily Thompson
                         <div className="badge badge-secondary">48 </div>
                     </h2>
@@ -41,7 +41,7 @@ const PopularClasses = () => {
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img3} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="card-title  text-black">
                     Drum Lessons by Mark Davis
                         <div className="badge badge-secondary">45 </div>
                     </h2>
@@ -53,7 +53,7 @@ const PopularClasses = () => {
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img4} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="card-title  text-black">
                     Saxophone Lessons by Jessica Ramirez
                         <div className="badge badge-secondary">40 </div>
                     </h2>
@@ -65,7 +65,7 @@ const PopularClasses = () => {
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img5} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="card-title  text-black">
                     Guitar Lessons by Jessica Fannale
                         <div className="badge badge-secondary">39 </div>
                     </h2>
@@ -77,7 +77,7 @@ const PopularClasses = () => {
             <div className="card w-80 bg-base-100 shadow-xl">
                 <figure><img src={img6} alt="Shoes" /></figure>
                 <div className="card-body">
-                    <h2 className="card-title">
+                    <h2 className="card-title  text-black">
                     Saxophone Lessons by Tiana Tabassum
                         <div className="badge badge-secondary">38 </div>
                     </h2>
