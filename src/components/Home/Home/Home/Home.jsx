@@ -4,6 +4,8 @@ import MusicPlay from "../MusicPlay";
 import PopularClasses from "../PopularClasses";
 import PopularInstructors from "../PopularInstructors";
 import { Helmet } from "react-helmet-async";
+import QuickFacts from "../QuickFacts";
+import Blogs from "./Blogs";
 
 const Home = () => {
     return (
@@ -14,7 +16,9 @@ const Home = () => {
             <Banner></Banner>
             <MusicPlay></MusicPlay>
             <PopularClasses></PopularClasses>
+            <Blogs></Blogs>
             <PopularInstructors></PopularInstructors>
+            <QuickFacts></QuickFacts>
             <Reviews></Reviews>
         </div>
     );

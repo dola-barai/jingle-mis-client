@@ -30,6 +30,7 @@
     "react-icons": "^4.9.0",
     "react-modal": "^3.16.1",
     "react-parallax": "^3.5.1",
+    "react-parallax-tilt": "^1.7.156",
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.11.2",
     "react-soundplayer": "^1.0.5",
