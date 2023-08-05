@@ -16,7 +16,7 @@ const PopularInstructors = () => {
         Aos.init({duration: 200})
     }, [])
     return (
-        <div>
+        <div className="mx-40">
             <SectionTitle
                 heading={"Popular Instructors"}
                 subHeading={"Student's preferred"}

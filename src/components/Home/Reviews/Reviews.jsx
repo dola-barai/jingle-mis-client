@@ -30,7 +30,7 @@ const Testimonials = () => {
             })
     }, [])
     return (
-        <section className="md:mx-20 md:mb-20">
+        <section className="md:mx-20 md:mb-3">
             <SectionTitle
                 subHeading={"reviews"}
                 heading={"Parent's Reviews"}
