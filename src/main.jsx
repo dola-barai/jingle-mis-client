@@ -18,10 +18,10 @@ const queryClient = new QueryClient()
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-        <div >
+        <div>
         <HelmetProvider>
         <QueryClientProvider client={queryClient}>
-          <div className='bg-slate-800'> 
+          <div> 
             <RouterProvider router={router} />
           </div>
         </QueryClientProvider>

@@ -6,8 +6,8 @@ const FaQ = () => {
                     <img className="md:ps-40" src="https://media1.giphy.com/media/3odxflN8NqzeSIRyvb/giphy.gif?cid=ecf05e47cqlpke1meqwy0afwn0fq40ty1y0qcmigb9y8ium9&ep=v1_stickers_search&rid=giphy.gif&ct=s" alt="" />
                 </div>
                 <div>
-                     <p className="text-yellow-600 mb-2 italic mb-3">FAQs</p>
-                    <h2 className="text-4xl font-semibold mb-8">Frequently Asked Questions</h2>
+                     <p className="text-yellow-600 italic mb-3">FAQs</p>
+                    <h2 className="text-3xl uppercase font-semibold mb-8">Frequently Asked Questions</h2>
                     <div tabIndex={0} className="collapse collapse-arrow">
                         <div className="collapse-title text-left font-medium">
                         What instruments do you offer lessons for?

@@ -8,6 +8,7 @@ import QuickFacts from "../QuickFacts";
 import Blogs from "./Blogs";
 import Slides from "../Slides";
 import FaQ from "../FAQ";
+import Message from "../Message";
 
 const Home = () => {
     return (
@@ -24,6 +25,7 @@ const Home = () => {
             <QuickFacts></QuickFacts>
             <Reviews></Reviews>
             <FaQ></FaQ>
+            <Message></Message>
         </div>
     );
 };
